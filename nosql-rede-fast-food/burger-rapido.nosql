@@ -1,0 +1,40 @@
+use bugerRapido
+
+
+db.cliente.insertOne({ nome: "Antonio", telefone: 11997560065 })
+
+db.cliente.insertOne({ nome: "Luiza", telefone: 11988552211 })
+
+db.cliente.insertOne({ nome: "Maria do Carmo", telefone: 11966554433 })
+
+
+db.pedidos.insertOne({ nome: "Antonio",
+telefone: 11997560065,
+pedidos: ["Hamburger", "Refrigerante", "batata-frita", "torta"],
+esta_esperando: true
+})
+
+db.pedidos.insertOne({ nome: "Luiza",
+telefone: 11988552211,
+pedidos: ["Hamburger", "Suco", "nuggets", "brind"],
+esta_esperando: false
+})
+
+db.pedidos.insertOne({ nome: "Maria do Carmo",
+telefone: 11966554433,
+pedidos: ["Hamburger", "milkshake", "sorvete"],
+esta_esperando: true
+})
+
+db.cliente.find()
+db.pedidos.find()
+
+mongodump -d bugerRapido -o bugerRapido
+
+db.dropDatabase()
+
+mongorestore bugerRapido
+
+show collections
+
+db.dropDatabase()
